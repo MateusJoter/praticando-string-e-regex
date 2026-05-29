@@ -1,10 +1,10 @@
 class Cliente:
-  __init__(self, nome, cidade):
+  def __init__(self, nome, cidade):
     self.nome = nome
     self.cidade = cidade
 
   @property
-  def nome(self, nome):
+  def nome(self):
     return self._nome
 
   @nome.setter
@@ -12,15 +12,19 @@ class Cliente:
     self._nome = nome
 
   @property
-  def cidade(self, cidade):
+  def cidade(self):
     return self._cidade
 
   @cidade.setter
   def cidade(self, cidade):
     self._cidade = cidade
 
-  def __str__(self):
+  @property
+  def boas_vindas(self):
     return(f'Olá, {self._nome}! Bem-vindo(a) ao sistema da cidade de {self._cidade}.')
 
 nome = input('Digite o nome do cliente: ')
 cidade = input('Digite a cidade do cliente: ')
+
+cliente = Cliente(nome, cidade)
+print(cliente.boas_vindas)
